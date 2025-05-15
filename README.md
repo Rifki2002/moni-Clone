@@ -1,16 +1,10 @@
 # moni_clone
 
-A new Flutter project.
+Moni Clone Flutter Project
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This is my Flutter project to practice my skill by cloning an application called "Moni", Its a Money saving application. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+*DISCLAIMER*
+This project is for practice purpose only
