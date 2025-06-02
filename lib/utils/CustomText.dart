@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomText extends StatelessWidget {
@@ -28,6 +27,8 @@ class CustomText extends StatelessWidget {
         fontWeight: fontWeight,
         color: color,
       ),
+      overflow: TextOverflow.ellipsis,
+      softWrap: false,
     );
   }
 }

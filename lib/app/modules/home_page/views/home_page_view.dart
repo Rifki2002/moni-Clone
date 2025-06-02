@@ -75,16 +75,16 @@ class HomePageView extends GetView<HomePageController> {
                               color1: Colors.grey,
                               text2: 'Rp 0',
                               color2: Colors.black,
-                              width: 190,
+                              width: 170,
                             ),
                             const Spacer(),
                             CustomContainer(
                               icon: Icons.circle_outlined,
-                              text1: 'Sisa Anggaran',
+                              text1: 'Anggaran',
                               color1: Colors.grey,
                               text2: 'Rp 0',
                               color2: Colors.black,
-                              width: 190,
+                              width: 170,
                             ),
                           ],
                         ),
@@ -213,7 +213,92 @@ class HomePageView extends GetView<HomePageController> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 50),
+                        const SizedBox(height: 30),
+                        Row(
+                          children: [
+                            CustomText(
+                              text: 'Anggaran',
+                              color: Colors.black,
+                            ),
+                            const Spacer(),
+                            CustomText(
+                              text: 'Lihat Semua',
+                              color: Colors.blue,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 30),
+                        Card(
+                          elevation: 1,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Container(
+                            decoration: BoxDecoration(color: Colors.white),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                children: [
+                                  Center(
+                                    child: Image.asset(
+                                      'assets/icons/moneybag.png',
+                                      width: 30,
+                                      height: 30,
+                                    ),
+                                  ),
+                                  CustomText(
+                                    text: 'Kamu Belum Memiliki ANggaran',
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                  ),
+                                  const SizedBox(height: 10),
+                                  CustomText(
+                                      text: 'Atur Sekarang',
+                                      fontSize: 12,
+                                      textalign: TextAlign.center,
+                                      color: Colors.lightBlueAccent),
+                                  SizedBox(
+                                    height: 40,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Center(
+                          child: Column(
+                            children: [
+                              CustomText(
+                                text:
+                                    "Hi Kak! Terima kasih telah menggunakan Moni",
+                                fontSize: 10,
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Punya Saran? ",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                                  Text(
+                                    "Klik Disini ",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.lightBlueAccent),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
                       ],
                     ),
                   ),
