@@ -9,6 +9,7 @@ abstract class Routes {
   static const LAPORAN_PAGE = _Paths.LAPORAN_PAGE;
   static const ANGGARAN_PAGE = _Paths.ANGGARAN_PAGE;
   static const AKUN_PAGE = _Paths.AKUN_PAGE;
+  static const SPLASH_SCREEN_DART = _Paths.SPLASH_SCREEN_DART;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const LAPORAN_PAGE = '/laporan-page';
   static const ANGGARAN_PAGE = '/anggaran-page';
   static const AKUN_PAGE = '/akun-page';
+  static const SPLASH_SCREEN_DART = '/splash-screen-dart';
 }

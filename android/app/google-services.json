@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "939698795915",
+    "project_id": "moni-clone",
+    "storage_bucket": "moni-clone.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939698795915:android:468a61b061f97d792b2b8e",
+        "android_client_info": {
+          "package_name": "com.moniclone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXMF01XLGt6niwtISQ4tSh5kfjxuDf8ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939698795915:android:2210e9b5e77e43af2b2b8e",
+        "android_client_info": {
+          "package_name": "com.moniclone.moni_clone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXMF01XLGt6niwtISQ4tSh5kfjxuDf8ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

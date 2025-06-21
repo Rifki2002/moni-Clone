@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class AkunPageController extends GetxController {
@@ -20,4 +21,11 @@ class AkunPageController extends GetxController {
   }
 
   void increment() => count.value++;
+}
+
+class AuthController extends GetxController {
+  final user = FirebaseAuth.instance.currentUser;
+
+  String get email => user?.email ?? 'No Email';
+  String get name => user?.displayName ?? 'No Name';
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,26 +12,57 @@ class HomePageView extends GetView<HomePageController> {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+    final photoUrl = user?.photoURL;
+    final displayName = user?.displayName ?? 'No Name';
+    final email = user?.email ?? 'No Email';
+    final initial = displayName.isNotEmpty
+        ? displayName[0].toUpperCase()
+        : (email.isNotEmpty ? email[0].toUpperCase() : '?');
     return Scaffold(
       backgroundColor: Colors.blue[400],
       body: SafeArea(
         child: Column(
           children: [
-            // 🔵 Fixed Header Section
+            // Fixed Header Section
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Row(
                 children: [
-                  const Icon(Icons.account_circle_rounded, color: Colors.white),
-                  const SizedBox(width: 10),
-                  Text(
-                    'Selamat Datang, Gandhi',
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                  CircleAvatar(
+                    radius: 18,
+                    backgroundColor: Colors.green[900],
+                    backgroundImage:
+                        photoUrl != null ? NetworkImage(photoUrl) : null,
+                    child: photoUrl == null
+                        ? Text(
+                            initial,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        : null,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Flexible(
+                    child: Text(
+                      'Selamat Datang,\n$displayName',
+                      maxLines: 3, // wrap to 2 lines max
+                      overflow: TextOverflow.ellipsis, // add "..." if too long
+                      softWrap: true,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  const Spacer(),
+                  SizedBox(
+                    width: 50,
+                  ),
                   Text(
                     'Kirim Saran',
                     style: GoogleFonts.poppins(
@@ -44,7 +76,7 @@ class HomePageView extends GetView<HomePageController> {
               ),
             ),
 
-            // ⚪️ Scrollable Content Section
+            //  Scrollable Content Section
             Expanded(
               child: SingleChildScrollView(
                 child: Container(

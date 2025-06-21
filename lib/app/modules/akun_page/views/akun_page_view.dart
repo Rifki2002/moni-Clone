@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:moni_clone/utils/BorderButton.dart';
 import 'package:moni_clone/utils/BottomBorderButton.dart';
 import 'package:moni_clone/utils/CustomText.dart';
@@ -9,9 +10,20 @@ import '../controllers/akun_page_controller.dart';
 
 class AkunPageView extends GetView<AkunPageController> {
   const AkunPageView({super.key});
+
   @override
   Widget build(BuildContext context) {
+    // Get the current Firebase user
+    final user = FirebaseAuth.instance.currentUser;
+    final photoURL = user?.photoURL;
+    final displayName = user?.displayName ?? 'No Name';
+    final email = user?.email ?? 'No Email';
+    final initial = displayName.isNotEmpty
+        ? displayName[0].toUpperCase()
+        : (email.isNotEmpty ? email[0].toUpperCase() : '?');
+
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           children: [
@@ -35,50 +47,50 @@ class AkunPageView extends GetView<AkunPageController> {
               ),
             ),
             Expanded(
-              //Scrollable Section
-              child: ListView(children: [
-                Container(
-                  child: Column(
+              child: ListView(
+                children: [
+                  Column(
                     children: [
+                      // Avatar
                       CircleAvatar(
-                        //Avatar Display
-                        radius: 30,
+                        radius: 50,
                         backgroundColor: Colors.green[900],
-                        child: const Text(
-                          'G',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        backgroundImage:
+                            photoURL != null ? NetworkImage(photoURL) : null,
+                        child: photoURL == null
+                            ? Text(
+                                initial,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            : null,
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      const SizedBox(height: 20),
+                      // Display Name and Email
                       CustomText(
-                        text: "Gandhi Sudrajat",
+                        text: displayName,
                         color: Colors.black,
                         fontSize: 18,
                       ),
                       CustomText(
-                        text: "Gandhi2002@Gmail.com",
+                        text: email,
                         color: Colors.grey,
                         fontSize: 12,
                       ),
+
                       BorderButton(
                         label: "Akses Bank & E-wallet",
                         onPressed: () {},
                         leadingIcon: Icons.shield_outlined,
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
+
+                      const SizedBox(height: 20),
+                      const Row(
                         children: [
-                          SizedBox(
-                            width: 25,
-                          ),
+                          SizedBox(width: 25),
                           CustomText(
                             text: "Pengaturan Fitur",
                             color: Colors.black87,
@@ -86,9 +98,8 @@ class AkunPageView extends GetView<AkunPageController> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      const SizedBox(height: 20),
+
                       BorderButton(
                         label: "Dompet",
                         onPressed: () {},
@@ -104,14 +115,11 @@ class AkunPageView extends GetView<AkunPageController> {
                         onPressed: () {},
                         leadingIcon: Icons.date_range,
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
+
+                      const SizedBox(height: 20),
+                      const Row(
                         children: [
-                          SizedBox(
-                            width: 25,
-                          ),
+                          SizedBox(width: 25),
                           CustomText(
                             text: "Lainnya",
                             color: Colors.black87,
@@ -119,9 +127,8 @@ class AkunPageView extends GetView<AkunPageController> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      const SizedBox(height: 20),
+
                       BorderButton(
                         label: "FAQ",
                         onPressed: () {},
@@ -142,20 +149,24 @@ class AkunPageView extends GetView<AkunPageController> {
                         onPressed: () {},
                         leadingIcon: Icons.delete,
                       ),
+
                       BottomBorderButton(
                         label: "Logout",
-                        onPressed: () {},
+                        onPressed: () async {
+                          await FirebaseAuth.instance.signOut();
+                          Get.offAllNamed(
+                              '/login-page'); // Just a simple logout function fore the icing on the cake
+                        },
                         leadingIcon: Icons.power_settings_new_sharp,
                         iconColor: Colors.red,
                         textColor: Colors.red,
                       ),
-                      SizedBox(
-                        height: 40,
-                      ),
+
+                      const SizedBox(height: 40),
                     ],
                   ),
-                ),
-              ]),
+                ],
+              ),
             ),
           ],
         ),

@@ -12,13 +12,15 @@ import '../modules/laporan_page/bindings/laporan_page_binding.dart';
 import '../modules/laporan_page/views/laporan_page_view.dart';
 import '../modules/login_page/bindings/login_page_binding.dart';
 import '../modules/login_page/views/login_page_view.dart';
+import '../modules/splash_screen.dart/bindings/splash_screen_dart_binding.dart';
+import '../modules/splash_screen.dart/views/splash_screen_dart_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN_PAGE;
+  static const INITIAL = Routes.SPLASH_SCREEN_DART;
 
   static final routes = [
     GetPage(
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.AKUN_PAGE,
       page: () => const AkunPageView(),
       binding: AkunPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH_SCREEN_DART,
+      page: () => const SplashPage(),
+      binding: SplashScreenDartBinding(),
     ),
   ];
 }

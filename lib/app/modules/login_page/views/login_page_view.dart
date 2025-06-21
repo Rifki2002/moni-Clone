@@ -62,7 +62,7 @@ class LoginPageView extends GetView<LoginPageController> {
                   height: 45,
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.toNamed('/home');
+                      controller.signInWithGoogle();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
