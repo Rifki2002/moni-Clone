@@ -12,7 +12,7 @@ void main() async {
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Moni Clone',
-      initialRoute: Routes.SPLASH_SCREEN_DART, // 👈 start at Splash
+      initialRoute: Routes.SPLASH_SCREEN_DART,
       getPages: AppPages.routes,
     ),
   );

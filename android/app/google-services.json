@@ -12,15 +12,32 @@
           "package_name": "com.moniclone"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "939698795915-1rk23evii2d22dqli9m1ukg7iavrgnfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBXMF01XLGt6niwtISQ4tSh5kfjxuDf8ng"
+          "current_key": "AIzaSyDOXvhneaJhVMsFiLKRcDgUkXgG2OYm4HM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939698795915-1rk23evii2d22dqli9m1ukg7iavrgnfn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "939698795915-7dltb3me5hv5aeq3fflsa8hmkjilpnbn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.moni-clone.moniClone"
+              }
+            }
+          ]
         }
       }
     },
@@ -31,15 +48,40 @@
           "package_name": "com.moniclone.moni_clone"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "939698795915-bksd6o9rte361b8p8teus19n9iodmtkd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moniclone.moni_clone",
+            "certificate_hash": "7a2c8ffc4c6c6bbd864aed674994280d5c2e6046"
+          }
+        },
+        {
+          "client_id": "939698795915-1rk23evii2d22dqli9m1ukg7iavrgnfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBXMF01XLGt6niwtISQ4tSh5kfjxuDf8ng"
+          "current_key": "AIzaSyDOXvhneaJhVMsFiLKRcDgUkXgG2OYm4HM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939698795915-1rk23evii2d22dqli9m1ukg7iavrgnfn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "939698795915-7dltb3me5hv5aeq3fflsa8hmkjilpnbn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.moni-clone.moniClone"
+              }
+            }
+          ]
         }
       }
     }
