@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moni_clone/app/modules/akun_page/views/akun_page_view.dart';
+import 'package:moni_clone/app/modules/anggaran_page/controllers/anggaran_page_controller.dart';
 import 'package:moni_clone/app/modules/anggaran_page/views/anggaran_page_view.dart';
 import 'package:moni_clone/app/modules/home_page/views/home_page_view.dart';
 import 'package:moni_clone/app/modules/laporan_page/views/laporan_page_view.dart';
@@ -18,11 +19,18 @@ class HomeView extends GetView<HomeController> {
               case 0:
                 return HomePageView();
               case 1:
-                return const Center(child: Text('Add Page'));
+                if (!Get.isRegistered<AnggaranPageController>()) {
+                  Get.put(AnggaranPageController());
+                }
+                return AnggaranPageView();
               case 2:
                 return LaporanPageView();
               case 3:
+                if (!Get.isRegistered<AnggaranPageController>()) {
+                  Get.put(AnggaranPageController());
+                }
                 return AnggaranPageView();
+
               case 4:
                 return AkunPageView();
               default:

@@ -1,23 +1,33 @@
 import 'package:get/get.dart';
+import 'package:moni_clone/app/data/db.helper.dart';
+import '../views/anggaran_model.dart';
 
 class AnggaranPageController extends GetxController {
-  //TODO: Implement AnggaranPageController
+  var anggaranList = <AnggaranModel>[].obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    loadData();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> loadData() async {
+    anggaranList.value = await DBHelper.getAllAnggaran();
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  Future<void> addAnggaran(String nama, int jumlah) async {
+    final newItem = AnggaranModel(nama: nama, jumlah: jumlah);
+    await DBHelper.insertAnggaran(newItem);
+    loadData();
   }
 
-  void increment() => count.value++;
+  Future<void> deleteAnggaran(int id) async {
+    await DBHelper.deleteAnggaran(id);
+    loadData();
+  }
+
+  Future<void> updateAnggaran(AnggaranModel data) async {
+    await DBHelper.updateAnggaran(data);
+    loadData();
+  }
 }
